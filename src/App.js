@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import Home from "./pages/Home";
-import "./App.css";
 import { MatchContextProvider } from "./context/MatchContext";
+import "./App.css";
 
 function App() {
   return (
