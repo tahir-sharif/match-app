@@ -1,9 +1,12 @@
-import React from 'react'
+import { Grid } from "@mui/material";
+import React from "react";
 
 const TeamSetup = () => {
   return (
-    <div>Team Setup</div>
-  )
-}
+    <Grid container>
+      <Grid xs={9}></Grid>
+    </Grid>
+  );
+};
 
-export default TeamSetup
+export default TeamSetup;

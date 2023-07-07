@@ -60,8 +60,8 @@ export default function Home() {
         aria-label="full width tabs example"
       >
         <Tab label="Dashboard" {...a11yProps(0)} />
-        <Tab label="Match Schedule" {...a11yProps(1)} />
-        <Tab label="Team Setup" {...a11yProps(2)} />
+        <Tab label="Team Setup" {...a11yProps(1)} />
+        <Tab label="Match Schedule" {...a11yProps(2)} />
         <Tab label="Scorecard " {...a11yProps(3)} />
       </Tabs>
       <Box sx={{ pt: 2 }}>
@@ -69,10 +69,10 @@ export default function Home() {
           <Dashboard />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <MatchSchedule />
+          <TeamSetup />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <TeamSetup />
+          <MatchSchedule />
         </TabPanel>
         <TabPanel value={value} index={3}>
           <ScoreCard />

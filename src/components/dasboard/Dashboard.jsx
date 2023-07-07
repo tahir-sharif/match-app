@@ -6,21 +6,24 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
-import { teams } from "../../data/dashbaord/teams";
+import React, { useContext, useState } from "react";
 import Card from "../common/Card";
-import { players } from "../../data/dashbaord/players";
 import Players from "./Players";
 import PlayerDetails from "./PlayerDetails";
-import { upcomingMatches } from "../../data/dashbaord/upcomingMatches";
+import { upcomingMatches } from "../../data/upcomingMatches";
+import { MatchContext } from "../../context/MatchContext";
 
 const Dashboard = () => {
+  const { teams, players } = useContext(MatchContext);
+
   const [selectedTeam, setSelectedTeam] = useState(teams[0]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const playersData = players.filter((p) => p.teamId === selectedTeam.id);
 
   const teamsOnChangeHandler = (_, value) => {
-    setSelectedTeam(value);
+    if (value) {
+      setSelectedTeam(value);
+    }
   };
 
   const playerOnClickHandler = (player) => {
