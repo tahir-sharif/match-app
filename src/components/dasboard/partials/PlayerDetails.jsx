@@ -1,6 +1,6 @@
 import { Box, Divider, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
-import Card from "../common/Card";
+import Card from "../../common/Card";
 
 const PlayerDetails = ({ selectedPlayer, playerExitHandler }) => {
   return (

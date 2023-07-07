@@ -9,8 +9,8 @@ import {
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import Card from "../common/Card";
-import Players from "./Players";
-import PlayerDetails from "./PlayerDetails";
+import Players from "./partials/Players";
+import PlayerDetails from "./partials/PlayerDetails";
 import { MatchContext } from "../../context/MatchContext";
 import {
   formatTimestamp,
