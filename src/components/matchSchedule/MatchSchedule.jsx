@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { MatchContext } from "../../context/MatchContext";
 
 const MatchSchedule = () => {
-  return (
-    <div>Match Schedule</div>
-  )
-}
+  const { upcomingMatches } = useContext(MatchContext);
 
-export default MatchSchedule
+  return <div>Match Schedule</div>;
+};
+
+export default MatchSchedule;

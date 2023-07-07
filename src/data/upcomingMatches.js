@@ -4,8 +4,7 @@ export const upcomingMatches = [
     status: "Up Coming",
     team1: "Barcelona",
     team2: "Real Madrid",
-    date: "2023/08/10",
-    time: "12:00 PM",
+    timeStamp: 1699335208020,
     venue: "Stadium 1",
   },
   {
@@ -13,8 +12,7 @@ export const upcomingMatches = [
     status: "Up Coming",
     team1: "Manchester United",
     team2: "Liverpool",
-    date: "2023/08/11",
-    time: "9:30 AM",
+    timeStamp: 1704605608020,
     venue: "Stadium 2",
   },
 ];

@@ -13,6 +13,7 @@ import Players from "./Players";
 import PlayerDetails from "./PlayerDetails";
 import { upcomingMatches } from "../../data/upcomingMatches";
 import { MatchContext } from "../../context/MatchContext";
+import { formatTimestamp, getStatusFromTimestamp } from "../../utils";
 
 const Dashboard = () => {
   const { teams, players } = useContext(MatchContext);
@@ -124,7 +125,7 @@ const Dashboard = () => {
                     <Chip
                       color="success"
                       sx={{ mb: 2 }}
-                      label={up.status}
+                      label={getStatusFromTimestamp(up.timeStamp)}
                     ></Chip>
                   }
                 >
@@ -132,9 +133,7 @@ const Dashboard = () => {
                     <b>{up.team1}</b> VS <b>{up.team2}</b>
                   </Typography>
 
-                  <Typography>
-                    {up.date} - {up.time}
-                  </Typography>
+                  <Typography>{formatTimestamp(up.timeStamp)}</Typography>
                 </Card>
               );
             })}
