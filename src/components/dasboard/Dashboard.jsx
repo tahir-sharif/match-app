@@ -11,12 +11,15 @@ import React, { useContext, useState } from "react";
 import Card from "../common/Card";
 import Players from "./Players";
 import PlayerDetails from "./PlayerDetails";
-import { upcomingMatches } from "../../data/upcomingMatches";
 import { MatchContext } from "../../context/MatchContext";
-import { formatTimestamp, getStatusFromTimestamp } from "../../utils";
+import {
+  formatTimestamp,
+  getStatusFromTimestamp,
+  getTeamName,
+} from "../../utils";
 
 const Dashboard = () => {
-  const { teams, players } = useContext(MatchContext);
+  const { teams, players, upcomingMatches } = useContext(MatchContext);
 
   const [selectedTeam, setSelectedTeam] = useState(teams[0]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
@@ -115,28 +118,33 @@ const Dashboard = () => {
           <Typography variant="h5">Upcoming Matches</Typography>
 
           <Box sx={{ mt: 2 }}>
-            {upcomingMatches.map((up, i) => {
-              return (
-                <Card
-                  key={i}
-                  heading={up.venue}
-                  style={{ width: "100%" }}
-                  right={
-                    <Chip
-                      color="success"
-                      sx={{ mb: 2 }}
-                      label={getStatusFromTimestamp(up.timeStamp)}
-                    ></Chip>
-                  }
-                >
-                  <Typography marginBottom={2}>
-                    <b>{up.team1}</b> VS <b>{up.team2}</b>
-                  </Typography>
+            {upcomingMatches.length ? (
+              upcomingMatches.map((up, i) => {
+                return (
+                  <Card
+                    key={i}
+                    heading={up.venue}
+                    style={{ width: "100%" }}
+                    right={
+                      <Chip
+                        color="success"
+                        sx={{ mb: 2 }}
+                        label={getStatusFromTimestamp(up.scheduleTimeStamp)}
+                      ></Chip>
+                    }
+                  >
+                    <Typography marginBottom={2}>
+                      <b>{getTeamName(up.team1_id, teams)}</b> VS{" "}
+                      <b>{getTeamName(up.team2_id, teams)}</b>{" "}
+                    </Typography>
 
-                  <Typography>{formatTimestamp(up.timeStamp)}</Typography>
-                </Card>
-              );
-            })}
+                    <Typography>{formatTimestamp(up.scheduleTimeStamp)}</Typography>
+                  </Card>
+                );
+              })
+            ) : (
+              <Typography>There are not any upcoming matches</Typography>
+            )}
           </Box>
         </Box>
       </Grid>

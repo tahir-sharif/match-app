@@ -1,18 +1,16 @@
 export const upcomingMatches = [
   {
     id: 1,
-    status: "Up Coming",
-    team1: "Barcelona",
-    team2: "Real Madrid",
-    timeStamp: 1699335208020,
-    venue: "Stadium 1",
+    team1_id: 1,
+    team2_id: 2,
+    scheduleTimeStamp: 1699335208020,
+    venue: "Victory Stadium",
   },
   {
     id: 2,
-    status: "Up Coming",
-    team1: "Manchester United",
-    team2: "Liverpool",
-    timeStamp: 1704605608020,
-    venue: "Stadium 2",
+    team1_id: 2,
+    team2_id: 3,
+    scheduleTimeStamp: 1704605608020,
+    venue: "Liberty Park",
   },
 ];

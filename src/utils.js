@@ -26,3 +26,7 @@ export const getStatusFromTimestamp = (timestamp) => {
     return "";
   }
 };
+
+export const getTeamName = (teamId, teams = []) => {
+  return teams.find((t) => t.id === teamId)?.name;
+};

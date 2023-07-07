@@ -44,7 +44,7 @@ function a11yProps(index) {
 }
 
 export default function Home() {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(2);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -62,7 +62,7 @@ export default function Home() {
       >
         <Tab label="Dashboard" {...a11yProps(0)} />
         <Tab label="Team Setup" {...a11yProps(1)} />
-        <Tab label="Match Schedule" {...a11yProps(2)} />
+        <Tab label="Schedule Match" {...a11yProps(2)} />
         <Tab label="Scorecard " {...a11yProps(3)} />
       </Tabs>
       <Divider />

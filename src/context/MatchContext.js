@@ -31,8 +31,29 @@ export const MatchContextProvider = ({ children }) => {
     updatePlayerId(null, playerId);
   };
 
+  const addMatch = (newMatch) => {
+    const newMatches = [...matchData.upcomingMatches];
+    newMatches.unshift(newMatch);
+    setMatchData((prev) => ({
+      ...prev,
+      upcomingMatches: newMatches,
+    }));
+  };
+
+  const removeMatch = (delMatch) => {
+    const newMatches = matchData.upcomingMatches.filter(
+      (up) => up.id !== delMatch.id
+    );
+    setMatchData((prev) => ({
+      ...prev,
+      upcomingMatches: newMatches,
+    }));
+  };
+
   return (
-    <MatchContext.Provider value={{ ...matchData, addPlayer, removePlayer }}>
+    <MatchContext.Provider
+      value={{ ...matchData, addPlayer, removePlayer, addMatch, removeMatch }}
+    >
       {children}
     </MatchContext.Provider>
   );
