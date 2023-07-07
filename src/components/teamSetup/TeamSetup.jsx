@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Card from "../common/Card";
 import { MatchContext } from "../../context/MatchContext";
 
@@ -38,7 +38,7 @@ const TeamSetup = () => {
         <Box sx={{ p: 2, pt: 0 }}>
           <Typography variant="h5">Teams {`(${teams.length})`}</Typography>
 
-          <Box sx={{ display: "flex", mt: 2 }}>
+          <Box sx={{ display: "flex", mt: 2, flexWrap: "wrap" }}>
             {teams.length ? (
               teams.map((t, i) => {
                 const currentTeamPlayers = getTeamsPlayers(t);
@@ -46,7 +46,7 @@ const TeamSetup = () => {
                 return (
                   <Card
                     style={{
-                      width: "50%",
+                      width: "49%",
                     }}
                     heading={t.name}
                     key={i}

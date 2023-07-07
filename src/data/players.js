@@ -109,4 +109,26 @@ export const players = [
       redCards: 0,
     },
   },
+  {
+    id: 11,
+    name: "Andrew",
+    teamId: 3,
+    stats: {
+      goals: 1,
+      assists: 8,
+      yellowCards: 1,
+      redCards: 0,
+    },
+  },
+  {
+    id: 12,
+    name: "David",
+    teamId: 3,
+    stats: {
+      goals: 3,
+      assists: 2,
+      yellowCards: 1,
+      redCards: 0,
+    },
+  },
 ];

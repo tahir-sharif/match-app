@@ -19,4 +19,15 @@ export const teams = [
       goalsConceded: 12,
     },
   },
+
+  {
+    id: 3,
+    name: "Real Andrew",
+    stats: {
+      wins: 8,
+      losses: 4,
+      goalsScored: 3,
+      goalsConceded: 12,
+    },
+  },
 ];
