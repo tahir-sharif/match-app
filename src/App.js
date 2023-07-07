@@ -7,7 +7,11 @@ function App() {
   return (
     <MatchContextProvider>
       <div className="App">
-        <Typography sx={{ my: 2 }} textAlign="center" variant="subtitle1">
+        <Typography
+          sx={{ py: 2, background: "#1976d2", color: "white", fontWeight: 600 }}
+          textAlign="center"
+          variant="subtitle1"
+        >
           Interactive Dashboard and Match Visualization for Soccer Knockout
           League
         </Typography>

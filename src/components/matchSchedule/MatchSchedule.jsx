@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Divider,
   Grid,
   TextField,
   Typography,
@@ -74,60 +75,65 @@ const MatchSchedule = () => {
   };
 
   return (
-    <Grid container>
-      <Grid xs={10}>
-        <Box>
-          <Typography variant="h4">Scheduled Matches</Typography>
-        </Box>
-
-        {upcomingMatches.length ? (
-          <Box sx={{ mt: 4 }}>
-            {upcomingMatches.map((up, i) => {
-              return (
-                <Card key={i} style={{ width: "90%", marginTop: "10px" }}>
-                  <Grid container>
-                    <Grid xs={11}>
-                      <Typography fontWeight={600} sx={{ mb: 2 }}>
-                        {up.venue}
-                      </Typography>
-                    </Grid>
-                    <Grid xs={1}>
-                      <Chip
-                        color="success"
-                        sx={{ mb: 2 }}
-                        label={getStatusFromTimestamp(up.scheduleTimeStamp)}
-                      ></Chip>
-                    </Grid>
-                  </Grid>
-                  <Typography marginBottom={2}>
-                    <b>{getTeamName(up.team1_id, teams)}</b> VS{" "}
-                    <b>{getTeamName(up.team2_id, teams)}</b>
-                  </Typography>
-
-                  <Typography>
-                    {formatTimestamp(up.scheduleTimeStamp)}
-                  </Typography>
-
-                  <Box sx={{ mt: 2 }}>
-                    <Button onClick={() => removeMatchHandler(up)}>
-                      Remove Match
-                    </Button>
-                  </Box>
-                </Card>
-              );
-            })}
+    <>
+      <Grid container>
+        <Grid xs={10}>
+          <Box>
+            <Typography variant="h4">Scheduled Matches</Typography>
           </Box>
-        ) : (
-          <Typography textAlign="center" marginTop={4} variant="subtitle1">
-            There are not any matches scheduled
-          </Typography>
-        )}
+        </Grid>
+
+        <Grid xs={2}>
+          <Button onClick={handleClickOpen} variant="contained">
+            + Schedule new Match
+          </Button>
+        </Grid>
       </Grid>
-      <Grid xs={2}>
-        <Button onClick={handleClickOpen} variant="contained">
-          + Schedule new Match
-        </Button>
-      </Grid>
+
+      <Divider sx={{ my: 2 }} />
+
+      {upcomingMatches.length ? (
+        <Box sx={{ mt: 4 }}>
+          {upcomingMatches.map((up, i) => {
+            return (
+              <Card key={i} style={{ width: "90%", marginTop: "10px" }}>
+                <Grid container>
+                  <Grid xs={11}>
+                    <Typography fontWeight={600} sx={{ mb: 2 }}>
+                      {up.venue}
+                    </Typography>
+                  </Grid>
+                  <Grid xs={1}>
+                    <Chip
+                      color="success"
+                      sx={{ mb: 2 }}
+                      label={getStatusFromTimestamp(up.scheduleTimeStamp)}
+                    ></Chip>
+                  </Grid>
+                </Grid>
+                <Typography marginBottom={2}>
+                  <b>{getTeamName(up.team1_id, teams)}</b> VS{" "}
+                  <b>{getTeamName(up.team2_id, teams)}</b>
+                </Typography>
+
+                <Typography>{formatTimestamp(up.scheduleTimeStamp)}</Typography>
+
+                <Box
+                  sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}
+                >
+                  <Button  variant="outlined" color="error" onClick={() => removeMatchHandler(up)}>
+                    Remove Match
+                  </Button>
+                </Box>
+              </Card>
+            );
+          })}
+        </Box>
+      ) : (
+        <Typography textAlign="center" marginTop={4} variant="subtitle1">
+          There are not any matches scheduled
+        </Typography>
+      )}
 
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Schedule New Match</DialogTitle>
@@ -212,7 +218,7 @@ const MatchSchedule = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </Grid>
+    </>
   );
 };
 

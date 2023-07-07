@@ -37,6 +37,7 @@ const TeamSetup = () => {
       <Grid xs={8.5}>
         <Box sx={{ p: 2, pt: 0 }}>
           <Typography variant="h5">Teams {`(${teams.length})`}</Typography>
+          <Divider sx={{ my: 2 }} />
 
           <Box sx={{ display: "flex", mt: 2, flexWrap: "wrap" }}>
             {teams.length ? (
@@ -63,20 +64,24 @@ const TeamSetup = () => {
                           <Card
                             style={{
                               border: "1px solid gray",
-                              width: "200px",
-                              cursor: "move",
+                              width: "47%",
                             }}
-                            heading={p.name}
                             key={i}
                           >
+                            <Typography fontWeight={500} marginBottom={2}>
+                              {p.name}
+                            </Typography>
                             <Button
+                              size="small"
+                              variant="outlined"
+                              color="error"
                               disabled={isDisabled}
                               onClick={() => {
                                 removePlayerFromTeam(t, p);
                               }}
                               fullWidth
                             >
-                              Remove
+                              Remove Player
                             </Button>
                           </Card>
                         );
@@ -117,6 +122,7 @@ const TeamSetup = () => {
       <Grid xs={3}>
         <Box sx={{ p: 2, pt: 0 }}>
           <Typography variant="h5">Available Players</Typography>
+          <Divider sx={{ my: 2 }} />
 
           <Box sx={{ display: "flex", mt: 2, flexWrap: "wrap", gap: "4px" }}>
             {availablePlayers.length ? (
@@ -124,12 +130,18 @@ const TeamSetup = () => {
                 return (
                   <Card
                     style={{
-                      border: "1px solid gray",
-                      width: "40%",
+                      width: "45%",
                     }}
-                    heading={p.name}
                     key={i}
-                  ></Card>
+                  >
+                    <Typography fontWeight={600} marginBottom={2}>
+                      {p.name}
+                    </Typography>
+
+                    <Typography variant="caption">
+                      Player is available
+                    </Typography>
+                  </Card>
                 );
               })
             ) : (

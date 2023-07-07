@@ -74,29 +74,31 @@ const Dashboard = () => {
             <Divider />
 
             <Box sx={{ display: "flex", my: 2 }}>
-              <Card
-                heading="Wins"
-                style={{ flex: 1, fontSize: "30px", color: "green" }}
-              >
-                {selectedTeam.stats.wins}
+              <Card heading="Wins" style={{ flex: 1, fontSize: "30px" }}>
+                <Typography variant="h2" color={"green"}>
+                  {selectedTeam.stats.wins}
+                </Typography>
               </Card>
-              <Card
-                heading="Losses"
-                style={{ flex: 1, fontSize: "30px", color: "red" }}
-              >
-                {selectedTeam.stats.losses}
+              <Card heading="Losses" style={{ flex: 1, fontSize: "30px" }}>
+                <Typography variant="h2" color={"red"}>
+                  {selectedTeam.stats.losses}
+                </Typography>
               </Card>
               <Card
                 heading="Goals Scored"
-                style={{ flex: 1, fontSize: "30px", color: "green" }}
+                style={{ flex: 1, fontSize: "30px" }}
               >
-                {selectedTeam.stats.goalsScored}
+                <Typography variant="h2" color={"green"}>
+                  {selectedTeam.stats.goalsScored}
+                </Typography>
               </Card>
               <Card
                 heading="Goals Conceded"
-                style={{ flex: 1, fontSize: "30px", color: "green" }}
+                style={{ flex: 1, fontSize: "30px" }}
               >
-                {selectedTeam.stats.goalsConceded}
+                <Typography variant="h2" color={"green"}>
+                  {selectedTeam.stats.goalsConceded}
+                </Typography>
               </Card>
             </Box>
             <Divider />
@@ -138,7 +140,9 @@ const Dashboard = () => {
                       <b>{getTeamName(up.team2_id, teams)}</b>{" "}
                     </Typography>
 
-                    <Typography>{formatTimestamp(up.scheduleTimeStamp)}</Typography>
+                    <Typography>
+                      {formatTimestamp(up.scheduleTimeStamp)}
+                    </Typography>
                   </Card>
                 );
               })
