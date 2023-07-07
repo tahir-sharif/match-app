@@ -1,6 +1,7 @@
 import {
   Autocomplete,
   Box,
+  Chip,
   Divider,
   Grid,
   TextField,
@@ -115,7 +116,18 @@ const Dashboard = () => {
           <Box sx={{ mt: 2 }}>
             {upcomingMatches.map((up, i) => {
               return (
-                <Card key={i} heading={up.venue} style={{ width: "100%" }}>
+                <Card
+                  key={i}
+                  heading={up.venue}
+                  style={{ width: "100%" }}
+                  right={
+                    <Chip
+                      color="success"
+                      sx={{ mb: 2 }}
+                      label={up.status}
+                    ></Chip>
+                  }
+                >
                   <Typography marginBottom={2}>
                     <b>{up.team1}</b> VS <b>{up.team2}</b>
                   </Typography>

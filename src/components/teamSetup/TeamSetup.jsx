@@ -84,7 +84,7 @@ const TeamSetup = () => {
 
                       {isDisabled && (
                         <Typography sx={{ mt: 2, color: "orange" }}>
-                          Every Team Should have at least 1 player
+                          Every Team must have at least 1 player
                         </Typography>
                       )}
 
@@ -117,14 +117,12 @@ const TeamSetup = () => {
       <Grid xs={3}>
         <Box sx={{ p: 2, pt: 0 }}>
           <Typography variant="h5">Available Players</Typography>
-          <Typography variant="subtitle1">Drag Players To Teams</Typography>
 
           <Box sx={{ display: "flex", mt: 2, flexWrap: "wrap", gap: "4px" }}>
             {availablePlayers.length ? (
               availablePlayers.map((p, i) => {
                 return (
                   <Card
-                    draggable
                     style={{
                       border: "1px solid gray",
                       width: "40%",

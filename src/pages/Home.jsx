@@ -8,6 +8,7 @@ import Dashboard from "../components/dasboard/Dashboard";
 import TeamSetup from "../components/teamSetup/TeamSetup";
 import MatchSchedule from "../components/matchSchedule/MatchSchedule";
 import ScoreCard from "../components/scoreCard/ScoreCard";
+import { Divider } from "@mui/material";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,6 +65,7 @@ export default function Home() {
         <Tab label="Match Schedule" {...a11yProps(2)} />
         <Tab label="Scorecard " {...a11yProps(3)} />
       </Tabs>
+      <Divider />
       <Box sx={{ pt: 2 }}>
         <TabPanel value={value} index={0}>
           <Dashboard />
