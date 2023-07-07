@@ -68,7 +68,7 @@ export const players = [
   {
     id: 7,
     name: "Kylian Mbappe",
-    teamId: 2,
+    teamId: null,
     stats: {
       goals: 7,
       assists: 3,
@@ -101,7 +101,7 @@ export const players = [
   {
     id: 10,
     name: "Harry Kane",
-    teamId: 2,
+    teamId: null,
     stats: {
       goals: 6,
       assists: 4,
